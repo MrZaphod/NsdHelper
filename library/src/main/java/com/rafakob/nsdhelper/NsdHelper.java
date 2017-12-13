@@ -274,6 +274,10 @@ public class NsdHelper implements DiscoveryTimer.OnTimeoutListener {
             logError("Couldn't assign port to your service.", 0, "java.net.ServerSocket");
             e.printStackTrace();
             return 0;
+        } finally {
+            if (socket != null) {
+                socket.close();   
+            }
         }
     }
 
